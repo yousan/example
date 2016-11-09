@@ -19,4 +19,28 @@ class FeatureContext implements Context
     public function __construct()
     {
     }
+
+    /**
+     * @Given I am in the :arg1
+     */
+    public function iAmInThe($arg1)
+    {
+        throw new PendingException();
+    }
+
+    /**
+     * @When I excecute "command'
+     */
+    public function iExcecuteCommand()
+    {
+        throw new PendingException();
+    }
+
+    /**
+     * @Then I should get :arg1
+     */
+    public function iShouldGet($arg1)
+    {
+        throw new PendingException();
+    }
 }
