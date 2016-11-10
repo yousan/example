@@ -1,10 +1,12 @@
 language: php
 php:
-  - '5.4'
-  - '5.5'
-  - '5.6'
-  - '7.0'
-  - hhvm
-  - nightly
-
+- '5.4'
+- '5.5'
+- '5.6'
+- '7.0'
+- hhvm
+- nightly
 script: php -r 'echo "yahoo";'
+notifications:
+  slack:
+    secure: lOgq78BYToFeAFy33xCBQ9ltIRQYPZQ4GmCgsP8Ncbo8GqNGvr88UvwcdroOHp21V+O3/xKdsRHPLf6j6by8hklQwJCsdj+YdEG23PQ0Er1sbAMfIMV1vzvjWgrjuYSgNrXpZ6qjcbXXlPXKyalPnm1VN00zJnvp4n4oIHRNIo6cA0lBHccAAth/IhvQ1grLESBDMtKfL1NZd/lcGt/hvMQulyNzAcf7lpddHrBcUYRTfl0NyNbvfX/+Q9xtNUPZXNb25H4wg/fQnMGX4dADV7zKASBwKNMsJI0VEeEZ/gKLQ++huguI48N/yXuKOo58vGDjLMsqGVwv0dQMmy23IyCB+Ua8z326605AeMDElcF1p+/61+ToOGUYgrk3ydZMv9UjU//kNPWwimwXr41Iq3ymcQU2dFQz00E3iBMWkgRJgkTzGd/h9I+Q7qZDrmbfbNOqzOZIgIzCMpQo69zSQNKyAX51g8zFV4/OpEQlF7zEmjgpc/UHegC/NHop76VyE8ZxPhFfWiFoY7y6sW0c78doYk49uIm7JG4x6R0sRkv0JC6OPYF/dEcV8SOy5babQSyY1RiP0PNTB7DjD22qk0WBzLWGGB1GT78L6AAkArzdi/DdmoVMkxT508rAZlOmaPMvj1WmmjnTRHsJjB63NzKifPRA5+Y5FC7d0AhASG0=
