@@ -6,7 +6,12 @@ php:
 - '7.0'
 - hhvm
 - nightly
-script: php -r 'echo "yahoo";'
+script:
+ - php -r 'echo "yahoo";'
+ - hadolint
+ - cat /etc/issue
+ - apt install hadolint -y
+ 
 notifications:
   slack:
     rooms:
