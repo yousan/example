@@ -1,13 +1,43 @@
 language: php
 php:
-- '5.4'
-- '5.5'
 - '5.6'
 - '7.0'
 - hhvm
 - nightly
-script: php -r 'echo "yahoo";'
+
+addons:
+  apt:
+    sources:
+    - hvr-ghc
+    packages:
+    - ghc-7.10.2
+
 notifications:
   slack:
     rooms:
       secure: A4GTO6dUZ2eAjlixEdViPx7ttuIIqRCvCGnVTOtquWayReFb9YCk+dkmnOKupmvug++9SL2rv3VK72XWQvXk6zDhxzxx4aLjh2QU6KmPA3Yf9IRNTmPXgoM1R//BdpFXYdmo612fwCnJ2vBhgm3V7LSHKbuN268PB5vFcHcdCCOMShskW5odHAzJIvJV63gvJi6i3LZg+0ypIZ9d77jQTcxk/da0THT+aOY+fld8KfFE43Rq/XDCi0IsAClqKAyhwEVj2G1tWqV0GyfGoJi8TXeQmiadpg2lq53Xw2kF4uewSD+BZ6eQ/m0xEe8noAWMPjJROahTkQ+wkuxEGD3+tquyxVUYtP0hpSX0hk+SzfTd80NOaOdrVL5Nsp5UJ3/AMCVQbShExzAUU+Fw4TxkXfSQRrlcGCwjgSjtykJhiOSdGu4s2oMRrXs0iEKzk+ZYsz8ZZOTFgkr7FNPO63ENwU35oSlcV78GK5HjQBFv6sM9TYBtf5riLyOHOj1U2aWrEGUAgybmNo8AMM89HU1uS0zM+Dmw0H0khF2ekx1Hq7F6qIFCvd74Sz+SQcCd2ptp75lwyMAAS/hoxy5ygxEa0acle2IifJmga9VLT1rZGhUrRNVuGAvxOuc3eL0/hsDBhdOlz8+LOFAtmkj95k3wjii86XYh7JnsPMJ/sX6xG9k=
+
+
+# https://docs.haskellstack.org/en/stable/travis_ci/
+cache:
+  directories:
+    - $HOME/.stack
+    
+before_install:
+  # Download and unpack the stack executable
+  - mkdir -p ~/.local/bin
+  - export PATH=$HOME/.local/bin:$PATH
+  - travis_retry curl -L https://www.stackage.org/stack/linux-x86_64 | tar xz --wildcards --strip-components=1 -C ~/.local/bin '*/stack'
+  - export PATH=/opt/ghc/7.10.2/bin:$PATH
+  - git clone https://github.com/lukasmartinelli/hadolint
+  - cd hadolint
+  - stack build
+#  - stack --no-terminal --skip-ghc-check test
+
+
+script:
+ - php -r 'echo "yahoo";'
+ - hadolint
+ - cat /etc/issue
+ - apt install hadolint -y
+ 
